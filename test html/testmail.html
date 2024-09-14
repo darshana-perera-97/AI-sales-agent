@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Send Email</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f5fc;
+        color: #111827;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+      .container {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        width: 400px;
+        text-align: center;
+      }
+      input,
+      textarea {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+      button {
+        padding: 10px 20px;
+        background-color: #2a70f0;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+      button:hover {
+        background-color: #1d58c7;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Send Email</h2>
+      <form id="emailForm">
+        <input type="email" id="to" placeholder="Recipient's Email" required />
+        <input type="text" id="subject" placeholder="Email Subject" required />
+        <textarea
+          id="text"
+          rows="4"
+          placeholder="Plain Text Message"
+          required
+        ></textarea>
+        <textarea
+          id="html"
+          rows="4"
+          placeholder="HTML Message (Optional)"
+        ></textarea>
+        <button type="submit">Send Email</button>
+      </form>
+      <p id="responseMessage"></p>
+    </div>
+
+    <script>
+      document
+        .getElementById("emailForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          const to = document.getElementById("to").value;
+          const subject = document.getElementById("subject").value;
+          const text = document.getElementById("text").value;
+          const html = document.getElementById("html").value;
+         
+          fetch(" http://localhost:5000/admin-send-email", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ to, subject, text, html }),
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              const responseMessage =
+                document.getElementById("responseMessage");
+              if (data.error) {
+                responseMessage.textContent = `Error: ${data.error}`;
+                responseMessage.style.color = "red";
+              } else {
+                responseMessage.textContent = "Email sent successfully!";
+                responseMessage.style.color = "green";
+              }
+            })
+            .catch((error) => {
+              console.error("Error:", error);
+            });
+        });
+    </script>
+  </body>
+</html>
