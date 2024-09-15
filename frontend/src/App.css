@@ -1,38 +1,189 @@
-.App {
+* {
+  font-family: "Poppins", sans-serif;
+}
+
+/* Header.css */
+.product-name {
+  font-size: 33px;
+  font-weight: 600;
+  background: linear-gradient(90deg, #229df2, #5c83f1, #fe81a1, #f79e2b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-muted {
+  font-weight: 300;
+  opacity: 0.8;
+  margin-top: -5px;
+}
+
+.user-initials-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: #2A70F0;
+  /* This could be your accent color */
+  font-weight: bold;
+}
+
+.user-initials {
+  font-size: 20px;
+  background: #fff;
+  padding: 10px 15px;
+  border-radius: 100px;
+  font-weight: 300;
+  margin-right: 30px;
+}
+
+.bg-light {
+  background-color: #e7e8ec71 !important;
+  /* Background color */
+}
+
+.form-card {
+  background: #ffffff;
+  box-shadow: 0px 0px 15px #00000015;
+  border-radius: 40px;
+}
+
+.form-card input {
+  border-radius: 15px;
+  padding: 22px 30px;
+  background: #f4f4f4;
+  margin-bottom: 25px;
+}
+
+.smtp input {
+  margin-bottom: 0px;
+}
+
+.form-card input::placeholder {
+  color: #888888;
+  opacity: 1;
+}
+
+.form-card h2 {
+  /* font-size: 40px; */
+  font-weight: 600;
+  background: linear-gradient(90deg, #229df2, #5c83f1, #fe81a1, #f79e2b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+  margin-top: 20px
+}
+
+.form-card h4 {
   text-align: center;
+  font-size: 15px;
+  color: #b3b3b3;
+  margin-top: 5px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.form-card button {
+  position: relative;
+  padding: 17px 30px;
+  font-size: 22px;
+  font-weight: 400;
+  cursor: pointer;
+  background-color: transparent;
+  color: #808080;
+  border: 2px solid transparent;
+  border-radius: 15px;
+  background-image: linear-gradient(white, white),
+    linear-gradient(to right, #229df2, #5c83f1, #fe81a1, #f79e2b);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  margin-top: 19px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.form-card button:hover {
+  position: relative;
+  padding: 17px 30px;
+  font-size: 22px;
+  font-weight: 500;
+  cursor: pointer;
+  background-color: transparent;
+  color: #494949 !important;
+  border: 2px solid transparent;
+  border-radius: 15px;
+  background-image: linear-gradient(white, white),
+    linear-gradient(to right, #229df2, #5c83f1, #fe81a1, #f79e2b);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
+.product-name {
+  font-size: 33px;
+  font-weight: 600;
+  background: linear-gradient(90deg, #229df2, #5c83f1, #fe81a1, #f79e2b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.nav-link {
+  text-align: center;
+  font-size: 15px;
+  color: #b3b3b3;
+  margin-top: 15px;
+  cursor: pointer;
+}
+
+.acc-data table td {
+  color: #919191;
+  padding-bottom: 10px;
+}
+
+.dashboard h3 {
+  color: #919191;
+  font-weight: 300;
+  margin-bottom: 0;
+}
+
+.dashboard .card {
+  background: #ffffff;
+  box-shadow: 0px 0px 15px #00000015;
+  border-radius: 20px;
+}
+
+.item-card {
+  box-shadow: 0px 0px 5px #00000015;
+  border-radius: 20px;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
+  height: 100%;
+  cursor: pointer;
+
 }
 
-.App-link {
-  color: #61dafb;
+.item-card h3 {
+  font-size: 22px;
+  font-weight: 400;
+  /* color: #808080c0; */
+  background: linear-gradient(90deg, #229df2, #5c83f1, #fe81a1, #e78300);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.title1 {
+  font-size: 30px;
+  font-weight: 400;
+  background: linear-gradient(90deg, #229df2, #5c83f1, #fe81a1, #e78300) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+.item-card p {
+  font-size: 15px;
+  font-weight: 300;
+  color: #80808070;
+}
+
+.back-btn {
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.form-card .submit-btn button {
+  margin-top: 0px !important;
 }

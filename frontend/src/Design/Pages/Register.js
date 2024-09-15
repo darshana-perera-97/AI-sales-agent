@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Header2 from "../Components/Header2";
 
 export default function Register(prop) {
   const [formData, setFormData] = useState({
@@ -110,112 +111,111 @@ export default function Register(prop) {
   };
 
   return (
-    <div className="container mt-5">
-      <div className="row justify-content-center">
-        <div className="col-md-6">
-          <h2 className="text-center mb-4">Register</h2>
+    <div>
+      <Header2 />
+      <div className="container mt-5">
+        <div className="row justify-content-center">
+          <div className="col-md-6 form-card p-md-5">
+            <h2 className="text-center ">Account Registration</h2>
+            <h4 className="mb-5">Create your account to work with Us.</h4>
+            {/* Registration form */}
+            {!showOtpForm ? (
+              <form onSubmit={handleSubmit}>
+                <div className="mb-3">
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="username"
+                    value={formData.username}
+                    onChange={handleChange}
+                    placeholder="User Name"
+                    required
+                  />
+                </div>
+                <div className="mb-3">
+                  <input
+                    type="email"
+                    className="form-control"
+                    id="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="Enter email"
+                    required
+                  />
+                </div>
+                <div className="mb-3">
+                  <input
+                    type="password"
+                    className="form-control"
+                    id="password"
+                    value={formData.password}
+                    onChange={handleChange}
+                    placeholder="Enter password"
+                    required
+                  />
+                </div>
+                <div className="mb-3">
+                  <input
+                    type="password"
+                    className="form-control"
+                    id="confirmPassword"
+                    value={formData.confirmPassword}
+                    onChange={handleChange}
+                    placeholder="Confirm password"
+                    required
+                  />
+                </div>
 
-          {/* Registration form */}
-          {!showOtpForm ? (
-            <form onSubmit={handleSubmit}>
-              <div className="mb-3">
-                <label htmlFor="username" className="form-label">
-                  Username
-                </label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="username"
-                  value={formData.username}
-                  onChange={handleChange}
-                  placeholder="Enter username"
-                  required
-                />
-              </div>
-              <div className="mb-3">
-                <label htmlFor="email" className="form-label">
-                  Email address
-                </label>
-                <input
-                  type="email"
-                  className="form-control"
-                  id="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  placeholder="Enter email"
-                  required
-                />
-              </div>
-              <div className="mb-3">
-                <label htmlFor="password" className="form-label">
-                  Password
-                </label>
-                <input
-                  type="password"
-                  className="form-control"
-                  id="password"
-                  value={formData.password}
-                  onChange={handleChange}
-                  placeholder="Enter password"
-                  required
-                />
-              </div>
-              <div className="mb-3">
-                <label htmlFor="confirmPassword" className="form-label">
-                  Confirm Password
-                </label>
-                <input
-                  type="password"
-                  className="form-control"
-                  id="confirmPassword"
-                  value={formData.confirmPassword}
-                  onChange={handleChange}
-                  placeholder="Confirm password"
-                  required
-                />
-              </div>
+                <button type="submit" className="btn btn-primary w-100">
+                  Register Now
+                </button>
+                <p
+                  className="nav-link text-center"
+                  onClick={() => {
+                    prop.setCurrentPage("login");
+                  }}
+                >
+                  Already have an accont?
+                </p>
+              </form>
+            ) : (
+              // OTP Form
+              <form onSubmit={handleOtpSubmit}>
+                <div className="mb-3">
+                  <label htmlFor="otp" className="form-label">
+                    Enter OTP
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="otp"
+                    value={otp}
+                    onChange={handleOtpChange}
+                    placeholder="Enter the OTP"
+                    required
+                  />
+                </div>
 
-              <button type="submit" className="btn btn-primary w-100">
-                Register
-              </button>
-            </form>
-          ) : (
-            // OTP Form
-            <form onSubmit={handleOtpSubmit}>
-              <div className="mb-3">
-                <label htmlFor="otp" className="form-label">
-                  Enter OTP
-                </label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="otp"
-                  value={otp}
-                  onChange={handleOtpChange}
-                  placeholder="Enter the OTP"
-                  required
-                />
+                <button type="submit" className="btn btn-primary w-100">
+                  Submit OTP
+                </button>
+              </form>
+            )}
+
+            {/* Display error message if it exists */}
+            {errorMessage && (
+              <div className="alert alert-danger mt-3" role="alert">
+                {errorMessage}
               </div>
+            )}
 
-              <button type="submit" className="btn btn-primary w-100">
-                Submit OTP
-              </button>
-            </form>
-          )}
-
-          {/* Display error message if it exists */}
-          {errorMessage && (
-            <div className="alert alert-danger mt-3" role="alert">
-              {errorMessage}
-            </div>
-          )}
-
-          {/* Display success message if it exists */}
-          {successMessage && (
-            <div className="alert alert-success mt-3" role="alert">
-              {successMessage}
-            </div>
-          )}
+            {/* Display success message if it exists */}
+            {successMessage && (
+              <div className="alert alert-success mt-3" role="alert">
+                {successMessage}
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </div>
