@@ -6,7 +6,7 @@ import FormDesign from "../Layouts/FormDesign";
 export default function FormFill(prop) {
   return (
     <div className="mb-5">
-      <Header />
+      <Header setCurrentPage={prop.setCurrentPage} />
       <SmtpCredentials setCurrentPage={prop.setCurrentPage} />
       <FormDesign />
     </div>

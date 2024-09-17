@@ -10,9 +10,20 @@
       "password": "ycfdgqfhinumrzjx"
     },
     "packages": [
-      "whatsapp",
-      "email",
-      "web"
+      "form",
+      "sms",
+      "smsAPI"
     ]
+  },
+  {
+    "username": "ds.perera.1997@gmail.com",
+    "email": "ds.perera.1997@gmail.com",
+    "password": "1234",
+    "emailVerification": true,
+    "otp": null,
+    "smtp": {
+      "email": "ds.perera.test@gmail.com",
+      "password": "ycfdgqfhinumrzjx"
+    }
   }
 ]

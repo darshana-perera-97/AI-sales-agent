@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-const Header = () => {
+const Header = (prop) => {
   const [userData, setUserData] = useState({
     username: "",
     email: "",
@@ -60,11 +60,19 @@ const Header = () => {
 
   return (
     <div className="bg-light">
-      <div className="container py-3">
+      <div className="container pb-3 mt-0 pt-3">
         <div className="row align-items-center">
           {/* Left Side - Product Name and Subtitle */}
           <div className="col-8">
-            <div className="d-flex flex-column">
+            <div
+              className="d-flex flex-column"
+              style={{
+                cursor: "pointer",
+              }}
+              onClick={() => {
+                prop.setCurrentPage("dashboard");
+              }}
+            >
               <h5 className="mb-0">
                 <span className="product-name">Product Name</span>
               </h5>
@@ -74,7 +82,15 @@ const Header = () => {
 
           {/* Right Side - User Info */}
           <div className="col-4 d-flex justify-content-end align-items-center">
-            <div className="d-flex align-items-center">
+            <div
+              className="d-flex align-items-center"
+              style={{
+                cursor: "pointer",
+              }}
+              onClick={() => {
+                prop.setCurrentPage("userData");
+              }}
+            >
               {/* Circle with Initials */}
               <div className="user-initials-circle d-flex justify-content-center align-items-center">
                 <span className="user-initials">

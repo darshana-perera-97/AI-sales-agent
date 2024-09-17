@@ -62,7 +62,8 @@
   opacity: 1;
 }
 
-.form-card h2 {
+.form-card h2,
+.title4 {
   /* font-size: 40px; */
   font-weight: 600;
   background: linear-gradient(90deg, #229df2, #5c83f1, #fe81a1, #f79e2b);
@@ -80,7 +81,7 @@
   margin-top: 5px;
 }
 
-.form-card button {
+.form-card button, .custombtn {
   position: relative;
   padding: 17px 30px;
   font-size: 22px;

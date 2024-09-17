@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Header from "../Components/Header";
 
-export default function UserData() {
+export default function UserData(prop) {
   const [userData, setUserData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -48,7 +48,7 @@ export default function UserData() {
 
   return (
     <div>
-      <Header />
+      <Header setCurrentPage={prop.setCurrentPage} />
       <div className="contianer">
         <div className="col-lg-4 offset-lg-4 col-md-6 offset-md-3 pt-5">
           <div className="form-card p-5 acc-data">
@@ -89,6 +89,7 @@ export default function UserData() {
                 </table>
               </div>
             )}
+            <p></p>
           </div>
         </div>
       </div>

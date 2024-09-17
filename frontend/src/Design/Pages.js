@@ -5,10 +5,11 @@ import Success from "./Pages/Success";
 import Dashboard from "./Pages/Dashboard";
 import UserData from "./Pages/UserData";
 import FormFill from "./Pages/FormFill";
+import Payment from "./Pages/Payment";
 
 export default function Pages() {
   // Declare state variables to track the current page and random key
-  const [currentPage, setCurrentPage] = useState("formSubmit");
+  const [currentPage, setCurrentPage] = useState("dashboard");
   // const [currentPage, setCurrentPage] = useState("register");
   const [randomKey, setRandomKey] = useState("");
 
@@ -38,6 +39,9 @@ export default function Pages() {
       )}
       {currentPage === "formSubmit" && (
         <FormFill setCurrentPage={setCurrentPage} currentPage={currentPage} />
+      )}
+      {currentPage === "payment" && (
+        <Payment setCurrentPage={setCurrentPage} currentPage={currentPage} />
       )}
     </div>
   );
