@@ -10,8 +10,8 @@ import WhatsappBot from "./Pages/WhatsappBot";
 
 export default function Pages() {
   // Declare state variables to track the current page and random key
-  const [currentPage, setCurrentPage] = useState("dashboard");
-  // const [currentPage, setCurrentPage] = useState("register");
+  // const [currentPage, setCurrentPage] = useState("dashboard");
+  const [currentPage, setCurrentPage] = useState("register");
   const [randomKey, setRandomKey] = useState("");
 
   // Function to generate a random 6-digit key
