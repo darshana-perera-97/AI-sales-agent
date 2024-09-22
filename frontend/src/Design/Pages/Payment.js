@@ -12,6 +12,7 @@ export default function Payment(prop) {
     if (item) {
       setSelectedItem(JSON.parse(item)); // Parse the stored JSON string back to an object
     }
+    // console.log(selectedItem.title);
   }, []);
 
   const sendEmail = () => {
@@ -42,7 +43,9 @@ export default function Payment(prop) {
       .then((response) => response.json())
       .then((data) => {
         if (data.message) {
-          console.log("Email sent successfully to admins.");
+          // console.log("Email sent successfully to admins.");
+          // console.log(selectedItem.title);
+          prop.setCurrentPage(selectedItem.title);
         }
 
         // After the first email is sent, send the confirmation email to the user
@@ -57,6 +60,7 @@ export default function Payment(prop) {
           .then((data) => {
             if (data.message) {
               console.log("Payment confirmation email sent to user.");
+              console.log("The emails have been successfully sent!"); // Add your custom message here
             }
           })
           .catch((error) => {

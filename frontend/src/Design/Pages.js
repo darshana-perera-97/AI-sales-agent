@@ -6,6 +6,7 @@ import Dashboard from "./Pages/Dashboard";
 import UserData from "./Pages/UserData";
 import FormFill from "./Pages/FormFill";
 import Payment from "./Pages/Payment";
+import WhatsappBot from "./Pages/WhatsappBot";
 
 export default function Pages() {
   // Declare state variables to track the current page and random key
@@ -42,6 +43,12 @@ export default function Pages() {
       )}
       {currentPage === "payment" && (
         <Payment setCurrentPage={setCurrentPage} currentPage={currentPage} />
+      )}
+      {currentPage === "WhatsApp Bot" && (
+        <WhatsappBot
+          setCurrentPage={setCurrentPage}
+          currentPage={currentPage}
+        />
       )}
     </div>
   );
