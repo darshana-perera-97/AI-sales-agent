@@ -43,9 +43,9 @@ export default function Payment(prop) {
       .then((response) => response.json())
       .then((data) => {
         if (data.message) {
-          // console.log("Email sent successfully to admins.");
+          console.log("Email sent successfully to admins.");
           // console.log(selectedItem.title);
-          prop.setCurrentPage(selectedItem.title);
+          // prop.setCurrentPage(selectedItem.title);
         }
 
         // After the first email is sent, send the confirmation email to the user
