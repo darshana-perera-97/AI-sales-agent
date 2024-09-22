@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp QR Code</title>
+</head>
+
+<body>
+    <h1>Scan the QR code to log in to WhatsApp</h1>
+    <div id="qrcode"></div>
+    <div id="status"></div>
+    <script>
+        // Fetch the QR code from the server and display it
+        fetch('http://localhost:3000/qr')
+            .then(response => response.json())
+            .then(data => {
+                const qrCodeImage = document.createElement('img');
+                qrCodeImage.src = data.qrCode;
+                document.getElementById('qrcode').appendChild(qrCodeImage);
+            })
+            .catch(error => {
+                console.error('Error fetching QR code:', error);
+            });
+
+        // Listen for server-sent events to check when the client is ready
+        const eventSource = new EventSource('http://localhost:3000/status');
+        eventSource.onmessage = function(event) {
+            const data = JSON.parse(event.data);
+            if (data.status === "ready") {
+                document.getElementById('status').textContent = "Your WHtsapp account has been conneced succesfully!";
+            }
+        };
+
+        // Reload the page every 0.5 seconds (500 milliseconds)
+        setInterval(() => {
+            location.reload();
+        }, 2000);
+    </script>
+</body>
+
+</html>

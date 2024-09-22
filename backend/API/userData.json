@@ -9,11 +9,7 @@
       "email": "ds.perera.test@gmail.com",
       "password": "ycfdgqfhinumrzjx"
     },
-    "packages": [
-      "form",
-      "sms",
-      "smsAPI"
-    ]
+    "packages": ["form", "sms", "smsAPI"]
   },
   {
     "username": "ds.perera.1997@gmail.com",
@@ -25,5 +21,17 @@
       "email": "ds.perera.test@gmail.com",
       "password": "ycfdgqfhinumrzjx"
     }
+  },
+  {
+    "username": "darshana.saluka.pc@gmail.com",
+    "email": "darshana.saluka.pc@gmail.com",
+    "password": "123",
+    "emailVerification": true,
+    "otp": null,
+    "smtp": {
+      "email": "ds.perera.test@gmail.com",
+      "password": "ycfdgqfhinumrzjx"
+    },
+    "packages": ["form", "sms", "smsAPI"]
   }
 ]
