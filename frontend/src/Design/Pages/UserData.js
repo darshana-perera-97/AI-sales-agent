@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Header from "../Components/Header";
+import config from "../config"; // Import config file
+
 
 export default function UserData(prop) {
   const [userData, setUserData] = useState(null);
@@ -20,7 +22,7 @@ export default function UserData(prop) {
     setError("");
 
     try {
-      const response = await fetch("http://localhost:5000/view-user", {
+      const response = await fetch(`${config.API_BASE_URL}/view-user` , {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

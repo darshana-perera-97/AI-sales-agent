@@ -1,4 +1,5 @@
 import React from "react";
+import config from "../config"; // Import config file
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const Header2 = () => {

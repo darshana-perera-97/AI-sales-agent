@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { DndProvider, useDrag, useDrop } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import "./FormDesign.css";
+import config from "../config"; // Import config file
 
 // Input types for draggable items
 const InputTypes = {
@@ -103,7 +104,7 @@ const Modal = ({
         text: replyMailContent || "We have received your submission.",
       };
       try {
-        await fetch("http://localhost:5000/send-email", {
+        await fetch(`${config.API_BASE_URL}/send-email`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -117,7 +118,7 @@ const Modal = ({
     }
 
     try {
-      const response = await fetch("http://localhost:5000/send-email", {
+      const response = await fetch(`${config.API_BASE_URL}/send-email`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

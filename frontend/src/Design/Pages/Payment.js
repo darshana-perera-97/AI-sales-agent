@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Header from "../Components/Header";
+import config from "../config"; // Import config file
 
 export default function Payment(prop) {
   const [selectedItem, setSelectedItem] = useState(null);
@@ -33,7 +34,7 @@ export default function Payment(prop) {
     };
 
     // First email to admins or other recipients
-    fetch("http://localhost:5000/admin-send-email", {
+    fetch(`${config.API_BASE_URL}/admin-send-email`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -49,7 +50,7 @@ export default function Payment(prop) {
         }
 
         // After the first email is sent, send the confirmation email to the user
-        fetch("http://localhost:5000/admin-send-email", {
+        fetch(`${config.API_BASE_URL}/admin-send-email`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

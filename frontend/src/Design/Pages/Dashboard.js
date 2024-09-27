@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Header from "../Components/Header";
 import UserData from "./UserData";
 import Packages from "../Layouts/Packages";
+import config from "../config"; // Import config file
 
 export default function Dashboard(prop) {
   const [userName, setUserName] = useState("");
@@ -26,7 +27,7 @@ export default function Dashboard(prop) {
       setError("");
 
       try {
-        const response = await fetch("http://localhost:5000/view-user", {
+        const response = await fetch(`${config.API_BASE_URL}/view-user`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

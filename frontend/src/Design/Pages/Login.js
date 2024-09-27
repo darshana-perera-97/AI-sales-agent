@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import Header2 from "../Components/Header2";
 import "bootstrap/dist/css/bootstrap.min.css";
+import config from "../config"; // Import config file
 
 const Login = (props) => {
   const [email, setEmail] = useState("");
@@ -12,7 +13,7 @@ const Login = (props) => {
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:5000/login", {
+      const response = await axios.post(`${config.API_BASE_URL}/login`, {
         email,
         password,
       });
