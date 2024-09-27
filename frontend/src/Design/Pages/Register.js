@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Header2 from "../Components/Header2";
+import config from "../config"; // Import config file
 
 export default function Register(prop) {
   const [formData, setFormData] = useState({
@@ -32,7 +33,7 @@ export default function Register(prop) {
 
     try {
       // Send registration data to the backend
-      const response = await fetch("http://localhost:5000/register", {
+      const response = await fetch(`${config.API_BASE_URL}/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -51,7 +52,7 @@ export default function Register(prop) {
 
         // Send registration email after successful registration
         const emailResponse = await fetch(
-          "http://localhost:5000/admin-send-email",
+          `${config.API_BASE_URL}/admin-send-email`,
           {
             method: "POST",
             headers: {
@@ -86,7 +87,7 @@ export default function Register(prop) {
     setErrorMessage(""); // Clear any previous errors
 
     try {
-      const response = await fetch("http://localhost:5000/verify-otp", {
+      const response = await fetch(`${config.API_BASE_URL}/verify-otp`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

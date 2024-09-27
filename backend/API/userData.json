@@ -10,12 +10,7 @@
       "email": "ds.perera.test@gmail.com",
       "password": "ycfdgqfhinumrzjx"
     },
-    "packages": [
-      "form",
-      "sms",
-      "smsAPI",
-      "whatsappbot"
-    ]
+    "packages": ["form", "sms", "smsAPI", "whatsappbot", "bulkMail", "emailAPI"]
   },
   {
     "username": "ds.perera.1997@gmail.com",
@@ -38,10 +33,6 @@
       "email": "ds.perera.test@gmail.com",
       "password": "ycfdgqfhinumrzjx"
     },
-    "packages": [
-      "form",
-      "sms",
-      "smsAPI"
-    ]
+    "packages": ["form", "sms", "smsAPI"]
   }
 ]

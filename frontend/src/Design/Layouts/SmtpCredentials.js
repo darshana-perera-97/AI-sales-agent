@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import config from "../config"; // Import config file
 
 export default function SmtpCredentials(prop) {
   const [userData, setUserData] = useState(null);
@@ -23,7 +24,7 @@ export default function SmtpCredentials(prop) {
     setError("");
 
     try {
-      const response = await fetch("http://localhost:5000/view-user", {
+      const response = await fetch(`${config.API_BASE_URL}/view-user`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -56,7 +57,7 @@ export default function SmtpCredentials(prop) {
     setUpdateError("");
     setUpdateMessage("");
     try {
-      const response = await fetch("http://localhost:5000/update-smtp", {
+      const response = await fetch(`${config.API_BASE_URL}/update-smtp`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

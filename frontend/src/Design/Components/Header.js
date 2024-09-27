@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import config from "../config"; // Import config file
 
 const Header = (prop) => {
   const [userData, setUserData] = useState({
@@ -26,7 +27,8 @@ const Header = (prop) => {
     setError("");
 
     try {
-      const response = await fetch("http://localhost:5000/view-user", {
+      const response = await fetch(`${config.API_BASE_URL}/view-user`, {
+        // Use the configurable base URL
         method: "POST",
         headers: {
           "Content-Type": "application/json",
