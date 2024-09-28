@@ -12,7 +12,7 @@ const QRCodeViewer = () => {
   const [error, setError] = useState("");
 
   // Time in milliseconds before refreshing the page (e.g., 5 seconds)
-  const refreshInterval = 8000;
+  const refreshInterval = 1000;
 
   // Get stored username from localStorage
   const storedUserName = localStorage.getItem("userName");

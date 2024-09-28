@@ -56,7 +56,19 @@ router.post("/register", (req, res) => {
   const otp = generateOtp();
 
   // Add the new user data to the array, set emailVerification and store OTP temporarily
-  const newUser = { username, email, password, emailVerification: false, otp };
+  const newUser = {
+    username,
+    email,
+    password,
+    emailVerification: false,
+    otp,
+    wplink: "",
+    smtp: {
+      email: "",
+      password: "",
+    },
+    packages: ["form"],
+  };
   users.push(newUser);
 
   // Write the updated users array back to the file
@@ -165,11 +177,9 @@ router.post("/update-smtp", (req, res) => {
 
   // Basic validation
   if (!username || !smtpEmail || !smtpPassword) {
-    return res
-      .status(400)
-      .json({
-        message: "Username, SMTP email, and SMTP password are required",
-      });
+    return res.status(400).json({
+      message: "Username, SMTP email, and SMTP password are required",
+    });
   }
 
   // Read users from file
@@ -191,12 +201,10 @@ router.post("/update-smtp", (req, res) => {
   // Write the updated users array back to the file
   writeUsersToFile(users);
 
-  return res
-    .status(200)
-    .json({
-      message: "SMTP details updated successfully",
-      data: users[userIndex],
-    });
+  return res.status(200).json({
+    message: "SMTP details updated successfully",
+    data: users[userIndex],
+  });
 });
 
 // Export the router to use in other files
