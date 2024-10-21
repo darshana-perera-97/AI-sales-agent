@@ -7,6 +7,7 @@ import UserData from "./Pages/UserData";
 import FormFill from "./Pages/FormFill";
 import Payment from "./Pages/Payment";
 import WhatsappBot from "./Pages/WhatsappBot";
+import WhatsappBulk from "./Pages/WhatsappBulk";
 
 export default function Pages() {
   // Declare state variables to track the current page and random key
@@ -46,6 +47,12 @@ export default function Pages() {
       )}
       {currentPage === "whatsappbot" && (
         <WhatsappBot
+          setCurrentPage={setCurrentPage}
+          currentPage={currentPage}
+        />
+      )}
+      {currentPage === "Whatsappbulk" && (
+        <WhatsappBulk
           setCurrentPage={setCurrentPage}
           currentPage={currentPage}
         />
