@@ -135,16 +135,22 @@ client.initialize().catch((error) => {
   console.error("Failed to initialize client:", error);
 });
 
+var t2 = "94771461925@c.us";
+var t = "94771461925@c.us";
 // API endpoint to send WhatsApp messages
 app.post("/send-message", async (req, res) => {
   const { to, message } = req.body;
+  console.log(req.body.to);
+  t = req.body.to + "@c.us";
 
   if (!to || !message) {
     return res.status(400).send("Both 'to' and 'message' fields are required.");
   }
 
   try {
-    await client.sendMessage(to, message);
+    // console.log(to);
+    await client.sendMessage(t, message);
+    // await client.sendMessage(to, message);
     res.status(200).send("Message sent successfully.");
   } catch (error) {
     console.error("Error sending message:", error);

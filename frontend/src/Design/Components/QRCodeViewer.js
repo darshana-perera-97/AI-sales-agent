@@ -11,8 +11,8 @@ const QRCodeViewer = () => {
   const [loading1, setLoading1] = useState(false);
   const [error, setError] = useState("");
 
-  // Time in milliseconds before refreshing the page (e.g., 5 seconds)
-  const refreshInterval = 8000;
+  // Time in milliseconds for periodic checking
+  const checkInterval = 5000; // Every 5 seconds
 
   // Get stored username from localStorage
   const storedUserName = localStorage.getItem("userName");
@@ -132,19 +132,17 @@ const QRCodeViewer = () => {
     if (userData) {
       fetchQRCode();
       checkClientStatus();
-    }
-  }, [userData]); // Depend on userData to fetch QR code and status
 
-  // Reload the page if QR code is not loaded after a certain time
-  useEffect(() => {
-    if (!qrCode && !clientReady) {
-      const refreshTimeout = setTimeout(() => {
-        window.location.reload(); // Refresh the page
-      }, refreshInterval);
+      // Periodic checking for QR code status without refreshing the page
+      const interval = setInterval(() => {
+        if (!clientReady) {
+          fetchQRCode(); // Re-fetch QR code
+        }
+      }, checkInterval);
 
-      return () => clearTimeout(refreshTimeout); // Clear timeout if QR code is loaded
+      return () => clearInterval(interval); // Clear interval when component unmounts or QR code is fetched
     }
-  }, [qrCode, clientReady]);
+  }, [userData, clientReady]); // Depend on userData and clientReady
 
   return (
     <div style={{ textAlign: "center", marginTop: "50px" }}>

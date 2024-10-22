@@ -10,10 +10,18 @@
       "email": "ds.perera.test@gmail.com",
       "password": "ycfdgqfhinumrzjx"
     },
-    "packages": ["form", "sms", "smsAPI", "whatsappbot", "bulkMail", "emailAPI"]
+    "packages": [
+      "form",
+      "sms",
+      "smsAPI",
+      "whatsappbot",
+      "emailAPI",
+      "bulkWhatsapp"
+    ]
   },
   {
     "username": "ds.perera.1997@gmail.com",
+    "wplink": "http://108.181.199.62:4000",
     "email": "ds.perera.1997@gmail.com",
     "password": "1234",
     "emailVerification": true,
@@ -33,6 +41,10 @@
       "email": "ds.perera.test@gmail.com",
       "password": "ycfdgqfhinumrzjx"
     },
-    "packages": ["form", "sms", "smsAPI"]
+    "packages": [
+      "form",
+      "sms",
+      "smsAPI"
+    ]
   }
 ]

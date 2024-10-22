@@ -34,7 +34,7 @@ export default function Packages(prop) {
       title: "Bulk WhatsApp",
       description: "Send WhatsApp messages in bulk.",
       icn: icn1,
-      link: "bulkWhatsapp",
+      link: "Whatsappbulk",
       requiredPackage: "bulkWhatsapp",
       cost: "5",
     },
